@@ -71,7 +71,8 @@ systemd:
           %{~ endfor ~}
           --pod-manifest-path=/etc/kubernetes/manifests \
           --read-only-port=0 \
-          --volume-plugin-dir=/var/lib/kubelet/volumeplugins
+          --volume-plugin-dir=/var/lib/kubelet/volumeplugins \
+          --feature-gates=CSINodeInfo=true,CSIDriverRegistry=true,CSIBlockVolume=true
         ExecStop=-/usr/bin/podman stop kubelet
         Delegate=yes
         Restart=always
