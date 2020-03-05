@@ -51,6 +51,7 @@ resource "aws_launch_configuration" "worker" {
 
   user_data = data.ct_config.worker-ignition.rendered
 
+  iam_instance_profile = var.worker_iam_instance_profile !=""? var.worker_iam_instance_profile : null
   # storage
   root_block_device {
     volume_type = var.disk_type

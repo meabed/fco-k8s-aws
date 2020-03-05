@@ -1,5 +1,6 @@
-//variable "extra_routes" {
-//  type = list(map(any))
-//  description = "Extra routes to be added in the the default routing table"
-//  default = []
-//}
+variable "iam_instance_profile" {
+  default = ""
+}
+variable "controller_iam_instance_profile" {
+  default = ""
+}

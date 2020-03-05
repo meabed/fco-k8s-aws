@@ -108,3 +108,7 @@ variable "node_labels" {
   description = "List of initial node labels"
   default     = []
 }
+
+variable "worker_iam_instance_profile" {
+  default = ""
+}

@@ -26,6 +26,7 @@ resource "aws_instance" "controllers" {
   ami       = data.aws_ami.fedora-coreos.image_id
   user_data = data.ct_config.controller-ignitions.*.rendered[count.index]
 
+  iam_instance_profile = var.controller_iam_instance_profile !="" ? var.controller_iam_instance_profile : null
   # storage
   root_block_device {
     volume_type = var.disk_type
